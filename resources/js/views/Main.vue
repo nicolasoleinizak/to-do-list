@@ -1,6 +1,7 @@
 <template>
-  <h1>To Do App</h1>
-  <router-link to="/">Home</router-link>
-  <router-link to="/login">Login</router-link>
-  <router-view></router-view>
+  <v-app>
+    <v-main class="pa-0">
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
