@@ -1,42 +1,47 @@
 <script>
   import { formRules } from '../helpers/formRules';
-  import TitleLogo from '../components/TitleLogo.vue';
+  import AuthForm from '../components/AuthForm.vue';
 
   export default{
-    data: () => ({
-      email: "",
-      password: "",
-      emailRules: [
-        formRules.email,
-      ],
-    }),
+    data: function () {
+      return {
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirmation: "",
+        emailRules: [
+          formRules.email,
+        ],
+        passwordRules: [
+          formRules.password,
+        ],
+        confirmationPasswordRules: [
+          value => value === this.password || 'Passwords must match.',
+        ]
+      }
+    },
     methods: {
       register () {
         alert("Register");
       },
     },
     components: {
-      TitleLogo
+      AuthForm
     }
   }
 </script>
 
 <template>
-  <v-container class="bg-primary fill-height justify-center" fluid>
-        <v-card fluid class="pa-6 rounded-lg w-100 h-100">
-          <v-container fluid class="fill-height">
-            <TitleLogo />
-            <p class="text-h4 w-100 text-center">Register</p>
-            <v-spacer></v-spacer>
-            <v-form class="w-100 align-center">
-              <v-text-field label="Email" type="email" v-model="email" :rules="emailRules"/>
-              <v-text-field label="Password" type="password"/>
-              <v-container class="d-flex flex-wrap justify-center">
-                <v-btn variant="flat" color="primary" class="ma-3 px-15" @click="this.register">Register</v-btn>
-                <router-link to="/login"><v-btn variant="outlined" color="primary" class="ma-3">Login</v-btn></router-link>
-              </v-container>
-            </v-form>
-          </v-container>
-        </v-card>
-  </v-container>
+  <AuthForm title="Register">
+    <v-form class="w-100 align-center">
+      <v-text-field label="Name" type="name" v-model="name"/>
+      <v-text-field label="Email" type="email" v-model="email" :rules="emailRules"/>
+      <v-text-field label="Password" type="password" v-model="password" :rules="passwordRules"/>
+      <v-text-field label="Password confirmation" type="password" v-model="passwordConfirmation" :rules="confirmationPasswordRules"/>
+      <v-container class="d-flex flex-wrap justify-center">
+        <v-btn variant="flat" color="primary" class="ma-3 px-15" @click="this.register">Register</v-btn>
+        <router-link to="/login"><v-btn variant="outlined" color="primary" class="ma-3">Login</v-btn></router-link>
+      </v-container>
+    </v-form>
+  </AuthForm>
 </template>

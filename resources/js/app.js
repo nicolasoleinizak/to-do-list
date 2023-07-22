@@ -5,13 +5,22 @@ import Main from './views/Main.vue';
 import Login from './views/Login.vue';
 import Home from './views/Home.vue';
 import Register from './views/Register.vue';
-import 'vuetify/styles';
 import colors from 'vuetify/lib/util/colors'
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css'
+import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
 const vuetify = createVuetify({
+  icons: {
+    defaultSet: 'mdi',
+    aliases,
+    sets: {
+      mdi,
+    },
+  },
   theme: {
     themes: {
       light: {
