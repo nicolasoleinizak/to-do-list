@@ -72,8 +72,6 @@ class ToDosTest extends TestCase
         
         $todos_listing_response = $this->getTodos($token);
         
-        echo json_encode($todos_listing_response->baseResponse->original);
-        
         $todos_listing_response->assertJson(fn (AssertableJson $json) =>
         $json->first(fn (AssertableJson $json) => 
         $json
