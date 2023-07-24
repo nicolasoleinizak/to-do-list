@@ -18,7 +18,8 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('body');
-            $table->boolean('isPrioritary')->default(false);
+            $table->boolean('is_completed')->default(false);
+            $table->boolean('is_prioritary')->default(false);
             $table->timestamps();
         });
     }
