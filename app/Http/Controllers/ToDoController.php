@@ -36,14 +36,18 @@ class ToDoController extends Controller
         if(isset($request->body)){
             $todo->body = $request->body;
         };
-        if(isset($request->isPrioritary)){
-            $todo->isPrioritary = $request->isPrioritary;
+        if(isset($request->is_prioritary)){
+            $todo->is_prioritary = $request->is_prioritary;
         };
+        if(isset($request->is_completed)){
+            $todo->is_completed = $request->is_completed;
+        }
         $todo->save();
         return response()->json(['message' => 'ok', 'todo' => $todo]);
     }
 
     function delete(Request $request) {
+        $user_id = auth()->user()->id;
         $todo = ToDo::where([
             'id' => $request->id,
             'user_id' => $user_id,
