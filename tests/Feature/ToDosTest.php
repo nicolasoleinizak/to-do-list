@@ -164,7 +164,6 @@ class ToDosTest extends TestCase
     private function updateTodo($token, $todo_id, $body)
     {
         $path = '/api/todos/'.$todo_id;
-        echo $path;
         $response = $this
             ->withHeaders([
                 'Content-Type' => 'application/json',
@@ -181,7 +180,6 @@ class ToDosTest extends TestCase
     private function deleteTodo($todo_id, $token)
     {
         $path = '/api/todos/'.$todo_id;
-        echo $path;
         $response = $this
             ->withHeaders([
                 'Content-Type' => 'application/json',
