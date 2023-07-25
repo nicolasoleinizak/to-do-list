@@ -23,6 +23,13 @@ export default defineConfig({
                     // reference assets in the public directory as expected.
                     includeAbsolute: false,
                 },
+                /* ---------------------------------------------------------------------------
+                UNCOMMENT THIS SECTION TO AVOID ERRORS WHILE RUNNING TESTS
+                
+                compilerOptions: {
+                    isCustomElement: (tag) => tag.match(/(v-[\w+])|(router-[\w+])/) ,
+                }
+                ----------------------------------------------------------------------------*/
             },
         }),
     ],
