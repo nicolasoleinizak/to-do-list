@@ -1,4 +1,4 @@
-import './bootstrap';
+//import './bootstrap';
 import * as VueRouter from 'vue-router';
 import { createApp } from 'vue';
 import Main from './views/Main.vue';
@@ -28,6 +28,7 @@ const vuetify = createVuetify({
         colors: {
           primary: colors.blue.base,
           secondary: colors.blue.darken2,
+          highlight: colors.yellow.darken2,
         }
       }
     }

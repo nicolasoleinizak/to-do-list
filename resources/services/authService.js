@@ -23,7 +23,6 @@ export const registerService = async (userData) => {
   } catch (error) {
     if(error.response?.data?.errors){
       const errorsString = Object.values(error.response.data.errors).join('');
-      console.error(errorsString)
       throw new Error(errorsString);
     } else {
       throw new Error('There was an error trying to register');

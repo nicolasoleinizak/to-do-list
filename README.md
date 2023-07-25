@@ -9,7 +9,22 @@ The authentication process suposes the need of users, that need to be authentica
 
 ## Notes for development
 
-### Unit/Feature Testing
+### Testing
+
+### Environment variables
+The required environment configuration is the database access data section of the .env file. You can find an example in .env.example.
+
+### Running the project on local server
+Paralelly, is required to run to terminals with the commands:
+``` 
+php artisan serve 
+```
+and
+```
+npm run dev
+```
+By default, the application will be running (both front and back ends) in port 8000.
+#### Backend Unit/Feature Testing
 The backend testing is provided by Laravel. To run the tests, you must serve a testing database and set its name in phpunit.xml env variable ```DB_DATABASE```.
 
 Laravel will take care of the proper migrations. Since the tests suite clears the database before each test, it is really important to not use another database that is not just for testing.
@@ -27,3 +42,11 @@ DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 ```
+
+#### Frontend testing
+No configuration is needed to run test on the frontend, just having node installed.
+```
+npm run test
+```
+This command will run the tests with vitest in watch mode. For other options, look for help with the -h option.
+Because of the console print a huge number of warning related to Vue components, the vite.config.js has compiler options that are commented for the normal execution of the application, but can be uncommented while testing to avoid anoying alerts.
