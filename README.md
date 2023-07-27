@@ -9,13 +9,28 @@ The authentication process suposes the need of users, that need to be authentica
 
 ## Notes for development
 
-### Testing
 
 ### Environment variables
-The required environment configuration is the database access data section of the .env file. You can find an example in .env.example.
+The required environment configuration is the database access data section of the .env file. You can find an example in .env.example. 
+It is also neccesary to set the VITE_API_BASE_URL variable. It's value has to be built with the base url of your service, plus '/api/', for example:
+```
+VITE_API_BASE_URL="http://localhost:8000/api/"
+```
+It is important because is the address Axios will use to make request to the server.
 
-### Running the project on local server
-Paralelly, is required to run to terminals with the commands:
+### Running the project
+If running the project for the first time, you must install dependencies with:
+```
+composer install
+
+npm install
+```
+Also, you have to generate just once a key for Laravel with the command
+```
+php artisan key:generate
+```
+
+After that, the settings are done. Now, paralelly, is required to run two commands in different terminals with the commands:
 ``` 
 php artisan serve 
 ```
@@ -24,6 +39,7 @@ and
 npm run dev
 ```
 By default, the application will be running (both front and back ends) in port 8000.
+### Testing
 #### Backend Unit/Feature Testing
 The backend testing is provided by Laravel. To run the tests, you must serve a testing database and set its name in phpunit.xml env variable ```DB_DATABASE```.
 
