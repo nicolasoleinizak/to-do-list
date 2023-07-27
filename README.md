@@ -25,9 +25,11 @@ composer install
 
 npm install
 ```
-Also, you have to generate just once a key for Laravel with the command
+Also, you have to generate just once a key for Laravel with the command, and run the migrations:
 ```
 php artisan key:generate
+
+php artisan migrate
 ```
 
 After that, the settings are done. Now, paralelly, is required to run two commands in different terminals with the commands:
