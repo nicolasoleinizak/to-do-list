@@ -5,6 +5,11 @@
         localStorage.removeItem('token');
         this.$router.push('/login');
       }
+    },
+    mounted() {
+      if(!localStorage.token){
+        this.$router.push('/login');
+      }
     }
   }
 </script>
